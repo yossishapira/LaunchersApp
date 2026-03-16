@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3010'
+const BASE_URL = 'http://localhost:3010/api'
 
 export const getAllLaunchers = async (path) => {
     try {
