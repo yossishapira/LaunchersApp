@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { createLaunchers } from "../controllers/launcherControllers.js";
+import { createLaunchers,getByIdLaunchers,getAllLaunchers } from "../controllers/launcherControllers.js";
 
 const router = Router()
 
 router.post('/launchers',createLaunchers)
-router.get('/launchers')
-router.get('/launchers/:id')
+router.get('/launchers',getAllLaunchers)
+router.get('/launchers/:id',getByIdLaunchers)
 export default router
