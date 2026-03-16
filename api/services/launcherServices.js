@@ -1,12 +1,12 @@
-import Launchers from "../models/Launchers";
+import Launchers from "../models/Launchers.js";
 
-export async function createLaunchers(launcher) {
+export async function createLaunchers(city,rocketType,latitude,longitude,name) {
     const newlauncher = await Launchers.create({
-        city: launcher.city,
-        rocketType: launcher.rocketType,
-        latitude: launcher.latitude,
-        longitude: launcher, longitude,
-        name: launcher.name
+        city,
+        rocketType,
+        latitude,
+        longitude,
+        name
     })
     return newlauncher
 }
