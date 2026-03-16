@@ -40,3 +40,9 @@ export async function getByIdLaunchers(id) {
     
 }
 
+export async function deleteLaunchers(id){
+    const deleteId = await Launchers.findByIdAndDelete(id) 
+    if(!deleteId) return "Not found"
+    return deleteId
+}
+

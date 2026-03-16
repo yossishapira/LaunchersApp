@@ -44,3 +44,12 @@ export async function getByIdLaunchers(req, res) {
 
     }
 }
+
+export async function deleteLaunchers(req,res) {
+    const id = req.params.id
+    const deleteId = await launcherServices.deleteLaunchers(id)
+    if(!deleteId){
+        return res.status(404).json({err:"Not found"})
+    }
+    return res.status(200).json({message:"Deletion successful"})
+}
