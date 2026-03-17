@@ -28,7 +28,7 @@ export default function AddLauncherPage() {
   return (
     <div>
       <h1>Add New Launcher</h1>
-      <form className="flex" onSubmit={handleSubmit}>
+      <form className="" onSubmit={handleSubmit}>
         <div>
           <label>name</label><br/>
           <input type="text" onChange={e=> setName(e.target.value)}/>
