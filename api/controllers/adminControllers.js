@@ -7,12 +7,12 @@ export async function createUsers(req, res) {
             return res.status(400).json({ eroor: "No standard fields sent" })
         }
        
-        const newUser = await userServices.createUsers(
+        const newUser = await userServices.createUser({
             username,
             password,
             email,
             user_type
-        )
+    })
         res.status(201).json(newUser)
     }
     catch (err) {

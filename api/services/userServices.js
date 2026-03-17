@@ -1,6 +1,6 @@
 import User from "../models/User.js";
 
-export async function createUser(username, password, email, user_type) {
+export async function createUser({username, password, email, user_type}) {
      const isInType = await User.findOne({ user_type })
             if (isInType) {
                 throw new Error ("User type already exists")

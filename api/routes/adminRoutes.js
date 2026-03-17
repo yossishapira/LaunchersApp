@@ -1,6 +1,6 @@
 import { Router } from "express";
 import * as adminControllers from '../controllers/adminControllers.js'
-import { approvalRequired ,requireType} from "../middleware/auth";
+import { approvalRequired ,requireType} from "../middleware/auth.js";
 const router = Router()
 router.post('/register/create',approvalRequired,requireType('admin'),adminControllers.createUsers)
 router.get('/users',approvalRequired,requireType('admin'),adminControllers.getAllUsers)
