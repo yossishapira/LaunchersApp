@@ -35,9 +35,7 @@ export async function getByIdLaunchers(id) {
         latitude: launcher.latitude,
         longitude: launcher.longitude,
         name: launcher.name
-    }
-
-    
+    }  
 }
 
 export async function deleteLaunchers(id){
@@ -46,3 +44,6 @@ export async function deleteLaunchers(id){
     return deleteId
 }
 
+export async function updateDestroyedStatus(id,status){
+    return await Launchers.findByIdAndUpdate(id,{destroyed:true},{new:true})
+}

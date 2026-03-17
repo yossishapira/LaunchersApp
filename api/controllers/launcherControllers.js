@@ -28,7 +28,7 @@ export async function getAllLaunchers(req, res) {
         return res.status(201).json( launchers )
     }
     catch (err) {
-        res.jsom({ err: "Not found" })
+        res.json({ err: "Not found" })
     }
 }
 
@@ -46,10 +46,32 @@ export async function getByIdLaunchers(req, res) {
 }
 
 export async function deleteLaunchers(req,res) {
+   try {
+     const id = req.params.id
+     const deleteId = await launcherServices.deleteLaunchers(id)
+     if(!deleteId){
+         return res.status(400).json({err:"Not found"})
+     }
+     return res.status(200).json({message:"Deletion successful"})
+   } catch (error) {
+    
+   }
+}
+
+export async function updateDestroyedStatus(req, res) {
     const id = req.params.id
-    const deleteId = await launcherServices.deleteLaunchers(id)
-    if(!deleteId){
-        return res.status(404).json({err:"Not found"})
+    const destroyed = req.body
+    try {
+        const data = await userServices.updateDestroyedStatus(id,destroyed)
+         if(!destroyed){
+        return res.status(404).json({reeoe:"no found"})
     }
-    return res.status(200).json({message:"Deletion successful"})
+        return res.status(200).json(data)
+    }
+   
+
+    catch (err) {
+        res.status(400).json({ err: message})
+
+    }
 }
