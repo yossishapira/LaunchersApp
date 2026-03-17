@@ -25,7 +25,7 @@ export async function createLaunchers(req, res) {
 export async function getAllLaunchers(req, res) {
     try {
         const launchers = await launcherServices.getAllLaunchers()
-        return res.status(201).json({ launchers })
+        return res.status(201).json( launchers )
     }
     catch (err) {
         res.jsom({ err: "Not found" })
